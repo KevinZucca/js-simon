@@ -1,3 +1,12 @@
+* {
+font-family: 'Kanit', sans-serif;
+}
+
+#main-container {
+    background-color: #517290;
+    color: white;
+}
+
 #container {
     text-align: center;
     padding: 20px;
@@ -9,9 +18,10 @@
 }
 
 #answer-container input {
-    width: 150px;
+    width: 120px;
     margin: 0 auto;
     padding: 3px;
+    text-align: center;
 }
 
 #answer-container #play-button {
@@ -19,3 +29,59 @@
     width: 100px;
     margin-top: 30px;
 }
+
+#result-container {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+#result-container #reset-button {
+    display: none;
+}
+
+#dots-container {
+    display: flex;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+ .dot1, .dot2, .dot3 {
+  background: #fff;
+  width: 3px;
+  height: 3px;
+  border-color:black;
+  border-radius: 50%;
+  margin: 10px;
+}
+.dot1 {
+  animation: jump 5s -0.32s linear ;
+  
+}
+.dot2 {
+    animation: jump 5s  -0.16s linear ;
+    
+}
+.dot3 {
+    animation: jump 5s -0.32s linear;
+
+
+}
+@keyframes jump {
+  0%{ 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    display: inline-block;
+  } 40% { 
+    -webkit-transform: scale(2.0);
+    transform: scale(2.0);
+    display: inline-block;
+  } 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    display: none;
+  }
+}
+

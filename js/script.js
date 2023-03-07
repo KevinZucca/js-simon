@@ -24,6 +24,8 @@ let fourthAnswer = document.getElementById("fourth-answer");
 let fifthAnswer = document.getElementById("fifth-answer");
 
 const playButtonEl = document.getElementById("play-button");
+const dotsEl = document.getElementById("dots-container");
+const awayWriteEl = document.getElementById("away-write");
 
 
 
@@ -41,6 +43,9 @@ setTimeout (askMeNumbers, 5000)
  */
 function askMeNumbers() {
     quizNumbersEl.style.display = ("none")
+    awayWriteEl.style.display = ("none");
+    dotsEl.style.display = ("none");
+
     const message = document.createElement ("h2");
     containerEl.append (message)
     message.textContent = "Indovina i 5 numeri";
@@ -66,9 +71,19 @@ function askMeNumbers() {
 
         const resultContainer = document.getElementById("result-container");
         const resultWrite = document.createElement("h2");
+        const resetButton = document.getElementById("reset-button");
+
+        resetButton.style.display = ("block")
+
         resultContainer.append(resultWrite);
+        resultContainer.append(resetButton);
         resultWrite.style.textAlign = ("center");
         resultWrite.textContent = (`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(", ")}`);
+
+
+        resetButton.addEventListener ("click", function(){
+            window.location.reload()
+        })
     })
   
 }

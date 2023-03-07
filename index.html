@@ -6,25 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>simon</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="container">
-        <h3>Simon says:</h3>
-        <h2 id="quiz-numbers" ></h2>
-    </div>
 
-    <div id="answer-container">
-        <input type="text" id="first-answer" placeholder="Primo numero">
-        <input type="text" id="second-answer" placeholder="Secondo numero">
-        <input type="text" id="third-answer" placeholder="Terzo numero">
-        <input type="text" id="fourth-answer" placeholder="Quarto numero">
-        <input type="text" id="fifth-answer" placeholder="Quinto numero">
-
-        <button id="play-button"> PROVA AD INDOVINARE </button>
-    </div>
-
-    <div id="result-container">
-
+    <div id="main-container">
+        <div id="container">
+            <h3>Simon says: <br>
+                <strong id="away-write">Memorizza i numeri !</strong> 
+            </h3>
+            <div id="dots-container">
+                <div class="dot dot1"></div>
+                <div class="dot dot2"></div>
+                <div class="dot dot3"></div>
+            </div>
+            
+            <h2 id="quiz-numbers" ></h2>
+        </div>
+    
+        <div id="answer-container">
+            <input type="text" id="first-answer" placeholder="Primo numero">
+            <input type="text" id="second-answer" placeholder="Secondo numero">
+            <input type="text" id="third-answer" placeholder="Terzo numero">
+            <input type="text" id="fourth-answer" placeholder="Quarto numero">
+            <input type="text" id="fifth-answer" placeholder="Quinto numero">
+    
+            <button id="play-button"> PROVA AD INDOVINARE </button>
+        </div>
+    
+        <div id="result-container">
+            <button id="reset-button">
+                Gioca di nuovo
+            </button>
+        </div>
+        
     </div>
 
     
