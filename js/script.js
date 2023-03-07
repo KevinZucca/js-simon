@@ -14,8 +14,18 @@
 
 
 //carico l'elemento h2 dove verranno generati i numeri della funzione e il container di tutti gli elementi
-const quizNumbersEl = document.getElementById("quiz-numbers")
-const containerEl = document.getElementById("container")
+const quizNumbersEl = document.getElementById("quiz-numbers");
+const containerEl = document.getElementById("container");
+const answerContainerEl = document.getElementById("answer-container");
+let firstAnswer = document.getElementById("first-answer");
+let secondAnswer = document.getElementById("second-answer");
+let thirdAnswer = document.getElementById("third-answer");
+let fourthAnswer = document.getElementById("fourth-answer");
+let fifthAnswer = document.getElementById("fifth-answer");
+
+const playButtonEl = document.getElementById("play-button");
+
+
 
 //specifico il contenuto di h2 collegando l'array
 let botNumbers = generateRandomNumbers(5, 100);
@@ -35,28 +45,27 @@ function askMeNumbers() {
     containerEl.append (message)
     message.textContent = "Indovina i 5 numeri";
 
-    let userNumbers = []
+    answerContainerEl.style.display = ("flex")
 
-    let answer1 = Number(prompt("Inserisci il primo numero"));
-    let answer2 = Number(prompt("Inserisci il secondo numero"));
-    let answer3 = Number(prompt("Inserisci il terzo numero"));
-    let answer4 = Number(prompt("Inserisci il quarto numero"));
-    let answer5 = Number(prompt("Inserisci il quinto numero"));
 
-    userNumbers.push (answer1);
-    userNumbers.push (answer2);
-    userNumbers.push (answer3);
-    userNumbers.push (answer4);
-    userNumbers.push (answer5);
+    playButtonEl.addEventListener("click", function(){
+        let userNumbers = []
+        userNumbers.push (Number(firstAnswer.value));
+        userNumbers.push (Number(secondAnswer.value));
+        userNumbers.push (Number(thirdAnswer.value));
+        userNumbers.push (Number(fourthAnswer.value));
+        userNumbers.push (Number(fifthAnswer.value));
 
-    let correctNumbers = [];
+        let correctNumbers = [];
 
-    for (let i = 0 ; i < botNumbers.length; i++) {
-        if (userNumbers.includes(botNumbers[i])) {
-            correctNumbers.push(botNumbers[i]);
+        for (let i = 0 ; i < botNumbers.length; i++) {
+            if (userNumbers.includes(botNumbers[i])) {
+                correctNumbers.push(botNumbers[i]);
+            }
         }
-    }
-    console.log(`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(", ")}`);
+        console.log(`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(", ")}`);
+    })
+  
 }
 
 

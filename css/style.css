@@ -2,3 +2,20 @@
     text-align: center;
     padding: 20px;
 }
+
+#answer-container {
+    flex-flow: column wrap;
+    display: none;
+}
+
+#answer-container input {
+    width: 150px;
+    margin: 0 auto;
+    padding: 3px;
+}
+
+#answer-container #play-button {
+    align-self: center;
+    width: 100px;
+    margin-top: 30px;
+}
