@@ -63,7 +63,12 @@ function askMeNumbers() {
                 correctNumbers.push(botNumbers[i]);
             }
         }
-        console.log(`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(", ")}`);
+
+        const resultContainer = document.getElementById("result-container");
+        const resultWrite = document.createElement("h2");
+        resultContainer.append(resultWrite);
+        resultWrite.style.textAlign = ("center");
+        resultWrite.textContent = (`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(", ")}`);
     })
   
 }
