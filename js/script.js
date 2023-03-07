@@ -13,17 +13,51 @@
 
 
 
-//carico l'elemento h2 dove verranno generati i numeri della funzione
+//carico l'elemento h2 dove verranno generati i numeri della funzione e il container di tutti gli elementi
 const quizNumbersEl = document.getElementById("quiz-numbers")
+const containerEl = document.getElementById("container")
 
 //specifico il contenuto di h2 collegando l'array
-let botNumbers = generateRandomNumbers(5, 100)
-quizNumbersEl.innerHTML = botNumbers.join(" - ")
-console.log(botNumbers)
+let botNumbers = generateRandomNumbers(5, 100);
+quizNumbersEl.innerHTML = botNumbers.join(" - ");
+console.log(botNumbers);
+
+setTimeout (askMeNumbers, 5000) 
 
 
+/**
+ * Funzione che fa sparire i numeri e genera le domande
+ * @returns {any}
+ */
+function askMeNumbers() {
+    quizNumbersEl.style.display = ("none")
+    const message = document.createElement ("h2");
+    containerEl.append (message)
+    message.textContent = "Indovina i 5 numeri";
 
+    let userNumbers = []
 
+    let answer1 = Number(prompt("Inserisci il primo numero"));
+    let answer2 = Number(prompt("Inserisci il secondo numero"));
+    let answer3 = Number(prompt("Inserisci il terzo numero"));
+    let answer4 = Number(prompt("Inserisci il quarto numero"));
+    let answer5 = Number(prompt("Inserisci il quinto numero"));
+
+    userNumbers.push (answer1);
+    userNumbers.push (answer2);
+    userNumbers.push (answer3);
+    userNumbers.push (answer4);
+    userNumbers.push (answer5);
+
+    let correctNumbers = [];
+
+    for (let i = 0 ; i < botNumbers.length; i++) {
+        if (userNumbers.includes(botNumbers[i])) {
+            correctNumbers.push(botNumbers[i]);
+        }
+    }
+    console.log(`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(", ")}`);
+}
 
 
 
@@ -47,3 +81,5 @@ function generateRandomNumbers (maxLength, rangeNumber ) {
     }
     return array;
 }
+
+
